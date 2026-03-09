@@ -1,3 +1,5 @@
+// this is visuals only. NO GAME DATA HERE (only heights, widths, offsets, colors, etc)
+
 class View{
     constructor(){
         // todo
@@ -11,8 +13,12 @@ class View{
         // notice I'm using `` here so that I can make a multiline String
         document.getElementById("stage").innerHTML = `
             <h1>View One</h1>
-            <p>check the console</p>
+            <p id="scoreDisplay">check the console</p>
             <button onclick="app.handleAddButton()">add</button>
         `;
+    }
+
+    showScore(score){
+        document.getElementById("scoreDisplay").innerHTML = score;
     }
 }
