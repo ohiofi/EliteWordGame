@@ -25,4 +25,8 @@ class Model{
     nextState(){
         // todo
     }
+
+    getRandomWord(list){
+        return list[Math.floor(Math.random() * list.length)];
+    }
 }
