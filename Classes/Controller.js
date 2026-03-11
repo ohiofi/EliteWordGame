@@ -4,6 +4,8 @@ class Controller{
         this.model = new Model();
         this.view = new View();
         this.view.display();
+
+        this.prevGuesses = []
     }
 
     handleAddButton(){
@@ -22,5 +24,23 @@ class Controller{
             //this.view = new OtherView();
         }
         this.view.display();
+    }
+
+    handleGetGuess() {
+        let guess
+        let guessValid = false
+
+        //loops the prompt until the guess is valid (at least 5 chars)
+        while (!guessValid) {
+            guess =  prompt("Input guess here:")
+            if (!guess || !(guess.length == 5)) {
+                continue
+            }
+            guessValid = true
+        }
+
+        this.model.userGuess(guess)
+        this.prevGuesses.push(guess)
+        this.view.showPreviousGuesses(this.prevGuesses)
     }
 }

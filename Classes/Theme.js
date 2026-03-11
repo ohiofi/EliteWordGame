@@ -60,7 +60,7 @@ class Theme {
             let colorVal = this[colorName]
             let oldColor = colorVal.toGrayscale()
 
-            this.colorName = oldColor
+            this[colorName] = oldColor
         }
     }
 

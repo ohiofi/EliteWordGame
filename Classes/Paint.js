@@ -3,6 +3,15 @@ const DEFAULT_RED        = 0
 const DEFAULT_GREEN      = 0
 const DEFAULT_BLUE       = 0
 
+const HEX_VALUES = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+]
+
 class Paint {
     //supports a single argument better c:
     constructor(red, green, blue) {
@@ -73,7 +82,7 @@ class Paint {
         let newColor = this.copy();
 
         let colorAvg = Math.round((newColor.R + newColor.G + newColor.B) / 3);
-        newColor.changeColor(colorAvg);
+        newColor.changeColor(colorAvg, colorAvg, colorAvg);
 
         return newColor;
     }
@@ -92,6 +101,31 @@ class Paint {
         }
 
         return new Paint(colorVals[0], colorVals[1], colorVals[2])
+    }
+
+    //just in case...
+    toHex() {
+        let hexString = "#" //remove # if its not needed
+
+        for (let rgb of this.getColor()) { //gets all 3 values
+            for(let i = 1; i <= 2; i++) {
+                let hexVal
+                if (i % 2 == 1) {
+                    hexVal = Math.floor(rgb / 16)
+                }
+                else {
+                    hexVal = rgb % 16
+                }
+                
+                if (hexVal > 9) {
+                    hexVal = HEX_VALUES[hexVal - 10]
+                }
+                
+                hexString += hexVal + ""
+            }
+        }
+        
+        return hexString
     }
 
     //no clue why anyone would use p5 colors over this but whatever (transparency or something?)
