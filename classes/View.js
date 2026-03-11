@@ -15,10 +15,15 @@ class View{
             <h1>View One</h1>
             <p id="scoreDisplay">check the console</p>
             <button onclick="app.handleAddButton()">add</button>
+            <p id="guessDisplay">Previous guesses</p>
         `;
     }
 
     showScore(score){
         document.getElementById("scoreDisplay").innerHTML = score;
+    }
+
+    showPreviousGuesses(listOfGuesses){
+        document.getElementById("guessDisplay").innerHTML = listOfGuesses;
     }
 }
