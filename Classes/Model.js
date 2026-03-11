@@ -4,6 +4,8 @@ class Model{
     constructor(){
         // todo
         this.score = 0;
+        this.word  = ""
+        this.prevGuesses = []
         console.log("hello from inside of Model constructor");
     }
 
@@ -27,6 +29,14 @@ class Model{
     }
 
     getRandomWord(list){
-        return list[Math.floor(Math.random() * list.length)];
+        let randWord = list[Math.floor(Math.random() * list.length)]
+        this.word = randWord
+        return randWord;
+    }
+
+    //might need to be added onto later
+    userGuess(guess) {
+        this.prevGuesses.push(guess)
+        return (guess == this.word)
     }
 }

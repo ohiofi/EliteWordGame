@@ -16,6 +16,7 @@ class View{
             <p id="scoreDisplay">check the console</p>
             <button onclick="app.handleAddButton()">add</button>
             <p id="guessDisplay">Previous guesses</p>
+            <button onclick="app.handleGetGuess()">guess</button>
         `;
     }
 
